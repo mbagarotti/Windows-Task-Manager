@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,17 +6,24 @@
     <!--Avalonia doesen't support TrimMode=link currently,but we are working on that https://github.com/AvaloniaUI/Avalonia/issues/6892 -->
     <TrimMode>copyused</TrimMode>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-    <ApplicationIcon>Assets\icons48.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\icons8_ecg.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
     <None Remove=".gitignore" />
     <None Remove="Assets\icons48.ico" />
+    <None Remove="Assets\icons8_fry_32px.png" />
+    <None Remove="Assets\icons8_Loading_32px.png" />
+    <None Remove="Assets\icons8_performance_smartphone_32px.png" />
+    <None Remove="Assets\icons8_process_32px_1.png" />
+    <None Remove="Assets\icons8_production_order_history_32px.png" />
     <None Remove="Assets\icons8_pulse_24px.png" />
+    <None Remove="Assets\icons8_services_32px_1.png" />
+    <None Remove="Assets\icons8_settings_32px.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\icons48.ico" />
+    <Content Include="Assets\icons8_ecg.ico" />
   </ItemGroup>
   <ItemGroup>
     <!--This helps with theme dll-s trimming.
