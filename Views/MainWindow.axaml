@@ -17,10 +17,46 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<Grid>
-		<StackPanel Orientation="Horizontal" Grid.Row="0"  VerticalAlignment="Top" Height="50" IsHitTestVisible="False" Background="Transparent">
+	<DockPanel>
+		<StackPanel Spacing="5" Orientation="Vertical" Width="50" >
+			<Button HorizontalAlignment="Center" Background="Transparent" Margin="2 5 0 0" Width="40" Height="32">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+			<Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+			<Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+			<Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+			<Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+			<Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+			<Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+			<Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+				<Image VerticalAlignment="Center" Height="16" Width="16" Source = "avares://Task_Manager/Assets/icons8_table_of_content.ico"/>
+			</Button>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Top" Height="45" IsHitTestVisible="False" Background="Transparent">
 			<Image Margin="10" VerticalAlignment="Bottom" Height="24" Width = "24" Source = "avares://Task_Manager/Assets/icons8_pulse_24px.png"/>
 			<TextBlock VerticalAlignment="Center" Margin="0 15 0 0" Foreground="White" FontFamily="Aller Display" FontSize="15" Height="29" >Task Monitor</TextBlock>
 		</StackPanel>
-	</Grid>
+		<StackPanel Spacing="5" Orientation="Vertical" Width="240" DockPanel.Dock="Left" Background="Blue">
+			<Button Margin="5 10 0 0" VerticalAlignment="Center" Height="75" Width="210" Background="Gray"></Button>
+			<Button Background="Gray"></Button>
+			<Button Background="Gray"></Button>
+			<Button Background="Gray"></Button>
+			<Button Background="Gray"></Button>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Background="Red">
+
+		</StackPanel>
+	</DockPanel>
 </Window>
