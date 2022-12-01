@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Task_Manager.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="Task_Manager">
+        Icon="/Assets/icons48.ico"
+        Title="Task_Manager"
+        Background="#202020"
+		CornerRadius="8"
+	    ExtendClientAreaToDecorationsHint="True"
+	    ExtendClientAreaChromeHints="PreferSystemChrome"
+	    ExtendClientAreaTitleBarHeightHint="-1">
 
-    <Design.DataContext>
+	<Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
