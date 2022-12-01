@@ -13,6 +13,7 @@
     <AvaloniaResource Include="Assets\**" />
     <None Remove=".gitignore" />
     <None Remove="Assets\icons48.ico" />
+    <None Remove="Assets\icons8_pulse_24px.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\icons48.ico" />

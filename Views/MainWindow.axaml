@@ -17,6 +17,10 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+	<Grid>
+		<StackPanel Orientation="Horizontal" Grid.Row="0"  VerticalAlignment="Top" Height="50" IsHitTestVisible="False" Background="Transparent">
+			<Image Margin="10" VerticalAlignment="Bottom" Height="24" Width = "24" Source = "avares://Task_Manager/Assets/icons8_pulse_24px.png"/>
+			<TextBlock VerticalAlignment="Center" Margin="0 15 0 0" Foreground="White" FontFamily="Aller Display" FontSize="15" Height="29" >Task Monitor</TextBlock>
+		</StackPanel>
+	</Grid>
 </Window>
