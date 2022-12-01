@@ -3,6 +3,7 @@
         xmlns:vm="using:Task_Manager.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:views="clr-namespace:Task_Manager.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Task_Manager.Views.MainWindow"
         Icon="/Assets/icons8_ecg.ico"
@@ -82,22 +83,14 @@
 
 		<!--Tittle Bar StackPanel-->		
 		<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Top" Height="45" IsHitTestVisible="False" Background="Transparent">
-			<Image Margin="10" VerticalAlignment="Bottom" Height="24" Width = "24" Source = "avares://Task_Manager/Assets/performance_graph_32px.png"/>
-			<TextBlock VerticalAlignment="Center" Margin="0 15 0 0" Foreground="White" FontFamily="Aller Display" FontSize="15" Height="29" >Task Monitor</TextBlock>
+			<Image VerticalAlignment="Center" Height="24" Width = "24" Source = "avares://Task_Manager/Assets/performance_graph_32px.png"/>
+			<TextBlock VerticalAlignment="Center" Margin="10 10 0 0" Foreground="White" FontFamily="Aller Display" FontSize="15" Height="29" >Task Monitor</TextBlock>
 		</StackPanel>
 
 		<!--Info Graph StackPanel-->
-		<StackPanel Spacing="5" Orientation="Vertical" Width="240" DockPanel.Dock="Left" Background="Blue">
-			<Button IsVisible="False" Margin="5 10 0 0" VerticalAlignment="Center" Height="75" Width="210" Background="Gray"></Button>
-			<Button Background="Gray"></Button>
-			<Button Background="Gray"></Button>
-			<Button Background="Gray"></Button>
-			<Button Background="Gray"></Button>
-		</StackPanel>
-
-		<!--Details Graph StackPanel-->
-		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Background="Red">
-
+		<StackPanel Orientation="Vertical" DockPanel.Dock="Left" Background="#272727">
+			<views:Performance IsVisible="True"/>
+			<TextBlock IsVisible="False">Checking</TextBlock>
 		</StackPanel>
 	</DockPanel>
 </Window>
