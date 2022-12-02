@@ -35,49 +35,73 @@
 			<StackPanel DockPanel.Dock="Top" Spacing="5" Orientation="Vertical" Width="50">
 				
 				<!--Menu button-->
-				<Button HorizontalAlignment="Center" Background="Transparent" Margin="2 5 0 0" Width="40" Height="32">
+				<Button CornerRadius="5" HorizontalAlignment="Center" Background="Transparent" Margin="2 5 0 0" Width="40" Height="32">
 					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/options_32px.png"/>
 				</Button>
 				
 				<!--Processes button-->
-				<Button ToolTip.Tip="Processes" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
-					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/time_process.png"/>
+				<Button CornerRadius="5" ToolTip.Tip="Processes" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+					<Panel Background="Transparent" Width="40" Height="40">
+						<Rectangle IsVisible="True" Name="pro_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/time_process.png"/>
+					</Panel>
 				</Button>
 
 				<!--Performance button-->
-				<Button ToolTip.Tip="Performance" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
-					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/performance_32px.png"/>
+				<Button CornerRadius="5" ToolTip.Tip="Performance" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+					<Panel Background="Transparent" Width="40" Height="40">
+						<Rectangle IsVisible="False" Name="per_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/performance_32px.png"/>
+					</Panel>
 				</Button>
 
 				<!--App History button-->
-				<Button ToolTip.Tip="App history" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
-					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/icons8_Loading_32px.png"/>
+				<Button CornerRadius="5" ToolTip.Tip="App history" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+					<Panel Background="Transparent" Width="40" Height="40">
+						<Rectangle IsVisible="False" Name="app_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/icons8_Loading_32px.png"/>
+					</Panel>
 				</Button>
 
 				<!--Startup apps button-->
-				<Button ToolTip.Tip="Startup apps" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
-					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/startup_app_32px.png"/>
+				<Button CornerRadius="5" ToolTip.Tip="Startup apps" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+					<Panel Background="Transparent" Width="40" Height="40">
+						<Rectangle IsVisible="False" Name="start_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/startup_app_32px.png"/>
+					</Panel>
 				</Button>
 
 				<!--Users button-->
-				<Button ToolTip.Tip="Users" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
-					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/users_32px.png"/>
+				<Button CornerRadius="5" ToolTip.Tip="Users" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+					<Panel Background="Transparent" Width="40" Height="40">
+						<Rectangle IsVisible="False" Name="users_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/users_32px.png"/>
+					</Panel>
 				</Button>
 
 				<!--Details button-->
-				<Button ToolTip.Tip="Details" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
-					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/details_32px.png"/>
+				<Button CornerRadius="5" ToolTip.Tip="Details" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+					<Panel Background="Transparent" Width="40" Height="40">
+						<Rectangle IsVisible="False" Name="detail_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/details_32px.png"/>
+					</Panel>
 				</Button>
 
 				<!--Services button-->
-				<Button ToolTip.Tip="Services" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
-					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/services_32px_1.png"/>
+				<Button CornerRadius="5" ToolTip.Tip="Services" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
+					<Panel Background="Transparent" Width="40" Height="40">
+						<Rectangle IsVisible="False" Name="service_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/services_32px_1.png"/>
+					</Panel>
 				</Button>
 			</StackPanel>
 			
 			<!--Settings Button-->
-			<Button Margin="0 0 0 10" ToolTip.Tip="Settings" HorizontalAlignment="Center" VerticalAlignment="Bottom" DockPanel.Dock="Left" Background="Transparent" Width="40" Height="40">
-				<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/settings_32px.png"/>
+			<Button CornerRadius="5" Margin="0 0 0 10" ToolTip.Tip="Settings" HorizontalAlignment="Center" VerticalAlignment="Bottom" DockPanel.Dock="Left" Background="Transparent" Width="40" Height="40">
+				<Panel Background="Transparent" Width="40" Height="40">
+					<Rectangle Name="Pro_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/settings_32px.png"/>
+				</Panel>
 			</Button>
 		</DockPanel>
 
@@ -88,9 +112,8 @@
 		</StackPanel>
 
 		<!--Info Graph StackPanel-->
-		<StackPanel Orientation="Vertical" DockPanel.Dock="Left" Background="#272727">
-			<views:Performance IsVisible="True"/>
-			<TextBlock IsVisible="False">Checking</TextBlock>
-		</StackPanel>
+		<Grid Background="Blue">
+			<views:Performance/>
+		</Grid>
 	</DockPanel>
 </Window>
