@@ -42,7 +42,7 @@
 				<!--Processes button-->
 				<Button CornerRadius="5" ToolTip.Tip="Processes" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
 					<Panel Background="Transparent" Width="40" Height="40">
-						<Rectangle IsVisible="True" Name="pro_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Rectangle IsVisible="False" Name="pro_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
 						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/time_process.png"/>
 					</Panel>
 				</Button>
@@ -50,7 +50,7 @@
 				<!--Performance button-->
 				<Button CornerRadius="5" ToolTip.Tip="Performance" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="40" Height="40">
 					<Panel Background="Transparent" Width="40" Height="40">
-						<Rectangle IsVisible="False" Name="per_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+						<Rectangle IsVisible="True" Name="per_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
 						<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/performance_32px.png"/>
 					</Panel>
 				</Button>
@@ -99,7 +99,7 @@
 			<!--Settings Button-->
 			<Button CornerRadius="5" Margin="0 0 0 10" ToolTip.Tip="Settings" HorizontalAlignment="Center" VerticalAlignment="Bottom" DockPanel.Dock="Left" Background="Transparent" Width="40" Height="40">
 				<Panel Background="Transparent" Width="40" Height="40">
-					<Rectangle Name="Pro_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
+					<Rectangle IsVisible="False" Name="Pro_rect" HorizontalAlignment="Left" Fill="#4CC2FF" Width="3" Height="15"/>
 					<Image VerticalAlignment="Center" Height="24" Width="24" Source = "avares://Task_Manager/Assets/settings_32px.png"/>
 				</Panel>
 			</Button>
@@ -112,7 +112,7 @@
 		</StackPanel>
 
 		<!--Info Graph StackPanel-->
-		<Grid Background="Blue">
+		<Grid Background="Transparent">
 			<views:Performance/>
 		</Grid>
 	</DockPanel>

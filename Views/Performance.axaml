@@ -2,10 +2,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             
              x:Class="Task_Manager.Views.Performance"
+			 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+			 xmlns:local="using:Task_Manager.ViewModels"
 			 Background="#191919">
-	<Grid>
-		<TextBlock>Performance</TextBlock>
+	
+	<UserControl.DataContext>
+		<local:PerformanceViewModel/>
+	</UserControl.DataContext>
+	<Grid Background="Transparent">
+		<DockPanel>
+			<StackPanel Width="200" DockPanel.Dock="Left">
+				
+			</StackPanel>
+			<Grid Background="Transparent" >
+				<TextBlock Text="hola"/>
+				<lvc:CartesianChart Series="{Binding ObservableValue}" ></lvc:CartesianChart>
+			</Grid>
+		</DockPanel>
 	</Grid>
 </UserControl>
