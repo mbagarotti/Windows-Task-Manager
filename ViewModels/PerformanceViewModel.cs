@@ -17,7 +17,7 @@ namespace Task_Manager.ViewModels
         { 
            CPUviewModel = new CPUViewModel();
         }
-        public CPUViewModel CPUviewModel { get; set; }
+        public CPUViewModel CPUviewModel { get; }
         public ObservableValue ObservableValue { get; set; }
     }
 }

@@ -6,29 +6,39 @@ using System.Threading.Tasks;
 using Task_Manager.Views;
 using System.Diagnostics;
 using System.Threading;
+using Microsoft.VisualBasic;
 
 namespace Task_Manager.Models
 {
     internal class CPU
     {
-        private static PerformanceCounter ramp;
+        private static PerformanceCounter cpuusage;
+        private static PerformanceCounter cpufrequency;
 
         public CPU() 
         {
-            ramp = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
-            while(true) {
+            cpuusage = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
+            cpufrequency = new PerformanceCounter("Processor Information", "% of Maximum Frequency", "_Total");
+            while (true) {
                 //System.Diagnostics.Debug.WriteLine("First: " + getCurrentCpuUsage() + " %");
                 
                 
-                System.Diagnostics.Debug.WriteLine("Second: " + getCurrentCpuUsage(500) + " %");
+                System.Diagnostics.Debug.WriteLine("Usage: " + getCurrentCpuUsage(250) + " %" + "Frequency: " + (getCurrentCpuFrequency(250)*4.70/100) + "GHz");
+
                 
             }
         }
-        public int getCurrentCpuUsage(int miliseconds)
+        private int getCurrentCpuUsage(int miliseconds)
         {
-            ramp.NextValue();
+            cpuusage.NextValue();
             Thread.Sleep(miliseconds);
-            return (int)ramp.NextValue();
+            return (int)cpuusage.NextValue();
+        }
+        private int getCurrentCpuFrequency(int miliseconds)
+        {
+            cpufrequency.NextValue();
+            Thread.Sleep(miliseconds);
+            return (int)cpufrequency.NextValue();
         }
     }
 }
