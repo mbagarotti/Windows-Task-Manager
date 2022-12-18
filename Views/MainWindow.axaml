@@ -8,9 +8,9 @@
         x:Class="Task_Manager.Views.MainWindow"
         Icon="/Assets/icons8_ecg.ico"
         Title="Task_Manager"
-        Background="#202020"
+        Background="#1F243C"
 		CornerRadius="8"
-	    ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaToDecorationsHint="True"
 	    ExtendClientAreaChromeHints="PreferSystemChrome"
 	    ExtendClientAreaTitleBarHeightHint="-1">
 
@@ -29,10 +29,10 @@
 	-->
 	<DockPanel>
 		<!--Left DockPanel With the options and setting button-->
-		<DockPanel>
+		<DockPanel Background="Transparent">
 			
 			<!--Left Stack Panel With main Options-->
-			<StackPanel DockPanel.Dock="Top" Spacing="5" Orientation="Vertical" Width="50">
+			<StackPanel Background="Transparent" DockPanel.Dock="Top" Spacing="5" Orientation="Vertical" Width="50">
 				
 				<!--Menu button-->
 				<Button CornerRadius="5" HorizontalAlignment="Center" Background="Transparent" Margin="2 5 0 0" Width="40" Height="32">
@@ -116,4 +116,5 @@
 			<views:Performance/>
 		</Grid>
 	</DockPanel>
+	
 </Window>

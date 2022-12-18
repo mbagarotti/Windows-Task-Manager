@@ -28,13 +28,13 @@ namespace Task_Manager.Models
                 
             }
         }
-        private int getCurrentCpuUsage(int miliseconds)
+        public int getCurrentCpuUsage(int miliseconds)
         {
             cpuusage.NextValue();
             Thread.Sleep(miliseconds);
             return (int)cpuusage.NextValue();
         }
-        private int getCurrentCpuFrequency(int miliseconds)
+        public int getCurrentCpuFrequency(int miliseconds)
         {
             cpufrequency.NextValue();
             Thread.Sleep(miliseconds);

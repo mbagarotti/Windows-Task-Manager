@@ -9,7 +9,7 @@ namespace Task_Manager.ViewModels
     {
         public MainWindowViewModel() 
         { 
-            CPU a = new CPU();
+            //CPU a = new CPU();
         }   
         
     }

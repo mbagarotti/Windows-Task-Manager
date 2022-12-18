@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             
              x:Class="Task_Manager.Views.Performance"
 			 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
 			 xmlns:local="using:Task_Manager.ViewModels"
@@ -11,15 +10,115 @@
 	<UserControl.DataContext>
 		<local:PerformanceViewModel/>
 	</UserControl.DataContext>
-	<Grid Background="Transparent">
-		<DockPanel>
-			<StackPanel Width="200" DockPanel.Dock="Left">
-				
-			</StackPanel>
-			<Grid Background="Transparent" >
-				<TextBlock Text="hola"/>
-				<lvc:CartesianChart Series="{Binding ObservableValue}" ></lvc:CartesianChart>
-			</Grid>
-		</DockPanel>
-	</Grid>
+
+	<DockPanel>
+		<StackPanel Orientation="Horizontal" Background="#272727" DockPanel.Dock="Top" Height="57">
+			<Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5">Performance</Label>
+		</StackPanel>
+		
+		<TabControl Background="#191919" Margin="-20,0,0,0" TabStripPlacement="Left">
+			<TabItem Margin="5,5,0,0" >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+						<Grid Margin="-10,-5,0,0" Background="Transparent" Height="75" Width="90">
+							<lvc:CartesianChart
+								Margin="0,5,0,0"
+								TooltipPosition="Hidden"
+								Series="{Binding Series}"
+								XAxes="{Binding XAxes}"
+								YAxes="{Binding YAxes}">
+							</lvc:CartesianChart>
+						</Grid>
+						<Label FontSize="15">CPU</Label>
+					</StackPanel>
+				</TabItem.Header>
+				<Grid>
+					<lvc:CartesianChart
+						TooltipPosition="Hidden"
+						Series="{Binding Series}"
+						XAxes="{Binding XAxes}"
+						YAxes="{Binding YAxes}">
+					</lvc:CartesianChart>
+				</Grid>
+			</TabItem>
+			<TabItem Margin="5,0,0,0" >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<lvc:CartesianChart
+								Margin="0,5,0,0"
+								TooltipPosition="Hidden"
+								Series="{Binding Series}"
+								XAxes="{Binding XAxes}"
+								YAxes="{Binding YAxes}">
+							</lvc:CartesianChart>
+						</Grid>
+						<Label FontSize="15" >Memory</Label>
+					</StackPanel>
+				</TabItem.Header>
+			</TabItem>
+			<TabItem Margin="5,0,0,0" >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<lvc:CartesianChart
+								Margin="0,5,0,0"
+								TooltipPosition="Hidden"
+								Series="{Binding Series}"
+								XAxes="{Binding XAxes}"
+								YAxes="{Binding YAxes}">
+							</lvc:CartesianChart>
+						</Grid>
+						<Label FontSize="15" >Disk 0</Label>
+					</StackPanel>
+				</TabItem.Header>
+			</TabItem>
+			<TabItem Margin="5,0,0,0" >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<lvc:CartesianChart
+								Margin="0,5,0,0"
+								TooltipPosition="Hidden"
+								Series="{Binding Series}"
+								XAxes="{Binding XAxes}"
+								YAxes="{Binding YAxes}">
+							</lvc:CartesianChart>
+						</Grid>
+						<Label FontSize="15" >Wi-Fi</Label>
+					</StackPanel>
+				</TabItem.Header>
+			</TabItem>
+			<TabItem Margin="5,0,0,0" >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<lvc:CartesianChart
+								Margin="0,5,0,0"
+								TooltipPosition="Hidden"
+								Series="{Binding Series}"
+								XAxes="{Binding XAxes}"
+								YAxes="{Binding YAxes}">
+							</lvc:CartesianChart>
+						</Grid>
+						<Label FontSize="15" >GPU</Label>
+					</StackPanel>
+				</TabItem.Header>
+			</TabItem>
+		</TabControl>
+		
+	</DockPanel>
+	<UserControl.Styles>
+		
+		<!--Items inside the header>
+		<Style Selector="TabItem:selected">
+			<Setter Property="Foreground" Value="Green"/>
+		</Style-->
+		<Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="#272727"/>
+		</Style>
+		<Style Selector="TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="#272727"/>
+		</Style>
+	</UserControl.Styles>
 </UserControl>
