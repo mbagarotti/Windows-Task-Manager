@@ -43,9 +43,9 @@ namespace Task_Manager.ViewModels
             new Axis
             {
                 MinLimit = 0,
-                MaxLimit = 10,
+                MaxLimit = 60,
                 ForceStepToMin = true,
-                MinStep = 0.5,
+                MinStep = 5,
                 TextSize = 0,
                 //SeparatorsPaint = null
                 SeparatorsPaint = new SolidColorPaint
@@ -61,9 +61,9 @@ namespace Task_Manager.ViewModels
             new Axis
             {
                 MinLimit = 0,
-                MaxLimit = 20,
+                MaxLimit = 10,
                 ForceStepToMin = true,
-                MinStep = 2,
+                MinStep = 1,
                 TextSize = 0,
                 //SeparatorsPaint = null
                 SeparatorsPaint = new SolidColorPaint

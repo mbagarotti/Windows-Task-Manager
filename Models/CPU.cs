@@ -105,11 +105,11 @@ namespace Task_Manager.Models
         }
 
         //Return current CPU usage
-        public int getCurrentCpuUsage(int miliseconds)
+        public double getCurrentCpuUsage(int miliseconds)
         {
             cpuusage.NextValue();
             Thread.Sleep(miliseconds);
-            return (int)cpuusage.NextValue();
+            return cpuusage.NextValue();
         }
 
         //Return current GHz

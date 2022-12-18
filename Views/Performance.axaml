@@ -30,19 +30,26 @@
 								YAxes="{Binding CPUviewModel.CPUYAxes}">
 							</lvc:CartesianChart>
 						</Grid>
-						<Label FontSize="15">CPU</Label>
+						<StackPanel Margin="0,5,0,0" Orientation="Vertical" Width="60" Height="60">
+							<TextBlock  FontSize="15">CPU</TextBlock>
+							<StackPanel Orientation="Horizontal" Width="60" Height="30">
+								<TextBlock Margin="0,5,0,0" Text="{Binding CPUviewModel.Utilization_value}" FontSize="12"/>
+								<TextBlock Margin="5,5,0,0" Text="{Binding CPUviewModel.Frequency_Value}" FontSize="12"/>
+							</StackPanel>
+						</StackPanel>
 					</StackPanel>
 				</TabItem.Header>
 				<DockPanel>
 					<StackPanel DockPanel.Dock="Top" Height="70" Orientation="Horizontal" Background="Transparent">
-						<Label  HorizontalAlignment="Center" Margin="10,5,0,0" FontSize="30">CPU</Label>
+						<TextBlock Text="CPU" HorizontalAlignment="Center" Margin="10,5,0,0" FontSize="30"/>
+						<TextBlock Text="{Binding CPUviewModel.Name}" Margin="30,10,0,0" FontSize="20" HorizontalAlignment="Right"/>
 					</StackPanel>
 					<Grid>
 						<lvc:CartesianChart
 							TooltipPosition="Hidden"
-							Series="{Binding Series}"
-							XAxes="{Binding XAxes}"
-							YAxes="{Binding YAxes}">
+							Series="{Binding CPUviewModel.CPUActivity}"
+							XAxes="{Binding CPUviewModel.XAxes}"
+							YAxes="{Binding CPUviewModel.YAxes}">
 						</lvc:CartesianChart>
 					</Grid>
 				</DockPanel>
