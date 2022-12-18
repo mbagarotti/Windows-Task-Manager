@@ -12,39 +12,47 @@
 	</UserControl.DataContext>
 
 	<DockPanel>
-		<StackPanel Orientation="Horizontal" Background="#272727" DockPanel.Dock="Top" Height="57">
+		<StackPanel Orientation="Horizontal" Background="#272727" DockPanel.Dock="Top" Height="50">
 			<Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5">Performance</Label>
 		</StackPanel>
 		
 		<TabControl Background="#191919" Margin="-20,0,0,0" TabStripPlacement="Left">
 			<TabItem Margin="5,5,0,0" >
 				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
-						<Grid Margin="-10,-5,0,0" Background="Transparent" Height="75" Width="90">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
+						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
 							<lvc:CartesianChart
 								Margin="0,5,0,0"
 								TooltipPosition="Hidden"
-								Series="{Binding Series}"
-								XAxes="{Binding XAxes}"
-								YAxes="{Binding YAxes}">
+								Series="{Binding CPUviewModel.CPUActivity}"
+								XAxes="{Binding CPUviewModel.CPUXAxes}"
+								YAxes="{Binding CPUviewModel.CPUYAxes}">
 							</lvc:CartesianChart>
 						</Grid>
 						<Label FontSize="15">CPU</Label>
 					</StackPanel>
 				</TabItem.Header>
-				<Grid>
-					<lvc:CartesianChart
-						TooltipPosition="Hidden"
-						Series="{Binding Series}"
-						XAxes="{Binding XAxes}"
-						YAxes="{Binding YAxes}">
-					</lvc:CartesianChart>
-				</Grid>
+				<DockPanel>
+					<StackPanel DockPanel.Dock="Top" Height="70" Orientation="Horizontal" Background="Transparent">
+						<Label  HorizontalAlignment="Center" Margin="10,5,0,0" FontSize="30">CPU</Label>
+					</StackPanel>
+					<Grid>
+						<lvc:CartesianChart
+							TooltipPosition="Hidden"
+							Series="{Binding Series}"
+							XAxes="{Binding XAxes}"
+							YAxes="{Binding YAxes}">
+						</lvc:CartesianChart>
+					</Grid>
+				</DockPanel>
+				
 			</TabItem>
 			<TabItem Margin="5,0,0,0" >
 				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
 						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
 							<lvc:CartesianChart
 								Margin="0,5,0,0"
 								TooltipPosition="Hidden"
@@ -59,8 +67,9 @@
 			</TabItem>
 			<TabItem Margin="5,0,0,0" >
 				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
 						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
 							<lvc:CartesianChart
 								Margin="0,5,0,0"
 								TooltipPosition="Hidden"
@@ -75,8 +84,9 @@
 			</TabItem>
 			<TabItem Margin="5,0,0,0" >
 				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
 						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
 							<lvc:CartesianChart
 								Margin="0,5,0,0"
 								TooltipPosition="Hidden"
@@ -91,8 +101,9 @@
 			</TabItem>
 			<TabItem Margin="5,0,0,0" >
 				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="250" Height="60">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
 						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
+							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
 							<lvc:CartesianChart
 								Margin="0,5,0,0"
 								TooltipPosition="Hidden"

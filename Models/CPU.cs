@@ -8,16 +8,24 @@ using System.Diagnostics;
 using System.Threading;
 using Microsoft.VisualBasic;
 using System.Management;
+using System.Xml.Linq;
 
 namespace Task_Manager.Models
 {
     internal class CPU
     {
-        private static PerformanceCounter cpuusage;
-        private static PerformanceCounter cpufrequency;
+        private PerformanceCounter cpuusage;
+        private PerformanceCounter cpufrequency;
         private ManagementObjectSearcher myProcessorObject;
-        private double maxSpeed;
 
+        private double maxSpeed;
+        private String name;
+        private double l1CacheSize;
+        private double l2CacheSize;
+        private double l3CacheSize;
+        private int threadCount;
+        private int numberOfCores;
+        private int numberOfLogicalProcessors;
 
         public CPU() 
         {
@@ -27,45 +35,84 @@ namespace Task_Manager.Models
             
             foreach (ManagementObject obj in myProcessorObject.Get())
             {
-                System.Diagnostics.Debug.WriteLine("Name  -  " + obj["Name"]);
-                System.Diagnostics.Debug.WriteLine("DeviceID  -  " + obj["DeviceID"]);
-                System.Diagnostics.Debug.WriteLine("Manufacturer  -  " + obj["Manufacturer"]);
-                System.Diagnostics.Debug.WriteLine("CurrentClockSpeed  -  " + obj["CurrentClockSpeed"]);
-                System.Diagnostics.Debug.WriteLine("MaxClockSpeed  -  " + obj["MaxClockSpeed"]);
-                maxSpeed = Convert.ToDouble(obj["MaxClockSpeed"]) / 1000;
-                System.Diagnostics.Debug.WriteLine("Virtualization  -  " + obj["VirtualizationFirmwareEnabled"]);
-                System.Diagnostics.Debug.WriteLine("Number of Threads  -  " + obj["ThreadCount"]);
-                System.Diagnostics.Debug.WriteLine("Caption  -  " + obj["Caption"]);
-                System.Diagnostics.Debug.WriteLine("NumberOfCores  -  " + obj["NumberOfCores"]);
-                System.Diagnostics.Debug.WriteLine("NumberOfEnabledCore  -  " + obj["NumberOfEnabledCore"]);
-                System.Diagnostics.Debug.WriteLine("NumberOfLogicalProcessors  -  " + obj["NumberOfLogicalProcessors"]);
-                System.Diagnostics.Debug.WriteLine("Architecture  -  " + obj["Architecture"]);
-                System.Diagnostics.Debug.WriteLine("Family  -  " + obj["Family"]);
-                System.Diagnostics.Debug.WriteLine("ProcessorType  -  " + obj["ProcessorType"]);
-                System.Diagnostics.Debug.WriteLine("Characteristics  -  " + obj["Characteristics"]);
-                System.Diagnostics.Debug.WriteLine("AddressWidth  -  " + obj["AddressWidth"]);
+                Name = Convert.ToString(obj["Name"]);
+                CPU_BaseFrequency = Convert.ToDouble(obj["MaxClockSpeed"]) / 1000;
+                ThreadCount = Convert.ToInt16(obj["ThreadCount"]);
+                NumberOfCores = Convert.ToInt16(obj["NumberOfCores"]);
+                NumberOfLogicalProcessors = Convert.ToInt16(obj["NumberOfLogicalProcessors"]);
+                //Numbers of Cores times 32KB plus Data cache(same math)
+                L1CacheSize = numberOfLogicalProcessors * 64;
+                L2CacheSize = Convert.ToDouble(obj["L2CacheSize"]);
+                L3CacheSize = Convert.ToDouble(obj["L3CacheSize"]);
                 break;
             }
 
-            while (true) {
+            /*while (true) {
                 //System.Diagnostics.Debug.WriteLine("First: " + getCurrentCpuUsage() + " %");
                 
                 
                 System.Diagnostics.Debug.WriteLine(getCurrentCpuUsage(500) + "%" +" "+ string.Format("{0:F2}", getCurrentCpuFrequency(500)) + " GHz");
 
                 
-            }
+            }*/
         }
-        public double CPU_MaxFrequency 
+        
+        public double L1CacheSize 
+        {
+            get { return l1CacheSize; }
+            set { l1CacheSize = value; }
+        }
+        public double L2CacheSize 
+        {
+            get { return l2CacheSize; }
+            set { l2CacheSize = value; }
+        }
+        public double L3CacheSize 
+        {
+            get { return l3CacheSize; }
+            set { l3CacheSize = value; }
+        }
+
+        public int ThreadCount 
+        {
+            get { return threadCount; }
+            set { threadCount = value; }
+        }
+        public int NumberOfCores 
+        {
+            get { return numberOfCores; }
+            set { numberOfCores = value; }
+        }
+        public int NumberOfLogicalProcessors 
+        {
+            get { return numberOfLogicalProcessors; }
+            set { numberOfLogicalProcessors = value; }
+        }
+        //Return CPU string detail
+        public String Name 
+        {
+            get 
+            { return name; }
+            set { name = value; }
+        }
+
+        //Return current base Frequency
+        public double CPU_BaseFrequency 
         { 
-            get ;
+            get 
+            { return maxSpeed;}
+            set { maxSpeed = value; }
         }
+
+        //Return current CPU usage
         public int getCurrentCpuUsage(int miliseconds)
         {
             cpuusage.NextValue();
             Thread.Sleep(miliseconds);
             return (int)cpuusage.NextValue();
         }
+
+        //Return current GHz
         public double getCurrentCpuFrequency(int miliseconds)
         {
             cpufrequency.NextValue();
