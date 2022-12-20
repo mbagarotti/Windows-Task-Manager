@@ -1,4 +1,27 @@
-﻿using System;
+﻿// The MIT License(MIT)
+//
+// Copyright(c) 2022 Marcos Bagarotti Marin
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +43,8 @@ namespace Task_Manager.ViewModels
         CPU mycpu;
         Thread workerThread;
         Thread workerThread2;
+        Task taskworkerThread3;
+        Task tasktaskworkerThread4;
         bool pin;
         int count;
         private static ObservableCollection<ObservableValue> _observableValues;
@@ -45,19 +70,42 @@ namespace Task_Manager.ViewModels
                     GeometryStroke = null
                 }
             };
-            workerThread = new Thread(new ThreadStart(Thread_Utilization_value));
+            Task.Run(()=>Thread_Utilization_value());
+            //tasktaskworkerThread4 = new Task(() => Thread_Frequency_Value());
+
+            
+            //tasktaskworkerThread4.Start();
+            /*workerThread = new Thread(new ThreadStart(Thread_Utilization_value));
             workerThread2 = new Thread(new ThreadStart(Thread_Frequency_Value));
             workerThread.IsBackground = true;
             workerThread2.IsBackground = true;
             workerThread.Start();
-            workerThread2.Start();
+            workerThread2.Start();*/
 
         }
-        public void Thread_Utilization_value() 
+        public async Task Thread_Utilization_value() 
         {
             while (pin)
             {
-                var q = Utilization(1000);
+                var a = new Task<double>[] { Utilization(), Speed()};
+                var result = await Task.WhenAll(a);
+                var q = result[0];
+                var j = result[1];
+                _observableValues.Add(new(q / 10));
+                Utilization_value = Convert.ToString((int)q);
+                Frequency_Value = j.ToString("f2");
+                if (count == 61)
+                {
+                    _observableValues.Remove(_observableValues[0]);
+                    count--;
+                }
+                count++;
+                /*var a = new Task<double>[] { Task.FromResult<double>(4), Task.FromResult<double>(6) };
+                var j = Task.WhenAll(a);*/
+                /*var q = Utilization(1000);
+                var j = Speed(1000);*/
+
+                /*Frequency_Value = j.ToString("f2");
                 _observableValues.Add(new (q/10));
                 Utilization_value = Convert.ToString((int)q);
                 if (count == 61)
@@ -65,7 +113,7 @@ namespace Task_Manager.ViewModels
                     _observableValues.Remove(_observableValues[0]);
                     count--;
                 }
-                count++;
+                count++;*/
             }
                                 
         }
@@ -73,8 +121,8 @@ namespace Task_Manager.ViewModels
         {
             while (pin)
             {
-                var j = Speed(1000);
-                Frequency_Value = j.ToString("f2");
+                /*var j = Speed(1000);
+                Frequency_Value = j.ToString("f2");*/
             }
 
         }
@@ -90,8 +138,11 @@ namespace Task_Manager.ViewModels
 
         }
         public String Name { get { return mycpu.Name; } }
-        public double Utilization(int miliseconds=500) { return this.mycpu.getCurrentCpuUsage(miliseconds); }
-        public double Speed(int miliseconds=500) { return this.mycpu.getCurrentCpuFrequency(miliseconds); }
+        public Task<double> Utilization(int miliseconds = 1000)
+        {
+            return this.mycpu.getCurrentCpuUsage(miliseconds);
+        }
+        public Task<double> Speed(int miliseconds = 1000) { return this.mycpu.getCurrentCpuFrequency(miliseconds); }
         public string Version { get; set; }
         
         public ObservableCollection<ISeries> CPUActivity { get; set; }
