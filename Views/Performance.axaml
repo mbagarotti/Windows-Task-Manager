@@ -76,76 +76,9 @@
 						</lvc:CartesianChart>
 					</Grid>
 				</DockPanel>
-				
-			</TabItem>
-			<TabItem Margin="5,0,0,0" >
-				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
-						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
-							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
-							<lvc:CartesianChart
-								Margin="0,5,0,0"
-								TooltipPosition="Hidden"
-								Series="{Binding Series}"
-								XAxes="{Binding XAxes}"
-								YAxes="{Binding YAxes}">
-							</lvc:CartesianChart>
-						</Grid>
-						<Label FontSize="15" >Memory</Label>
-					</StackPanel>
-				</TabItem.Header>
-			</TabItem>
-			<TabItem Margin="5,0,0,0" >
-				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
-						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
-							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
-							<lvc:CartesianChart
-								Margin="0,5,0,0"
-								TooltipPosition="Hidden"
-								Series="{Binding Series}"
-								XAxes="{Binding XAxes}"
-								YAxes="{Binding YAxes}">
-							</lvc:CartesianChart>
-						</Grid>
-						<Label FontSize="15" >Disk 0</Label>
-					</StackPanel>
-				</TabItem.Header>
-			</TabItem>
-			<TabItem Margin="5,0,0,0" >
-				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
-						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
-							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
-							<lvc:CartesianChart
-								Margin="0,5,0,0"
-								TooltipPosition="Hidden"
-								Series="{Binding Series}"
-								XAxes="{Binding XAxes}"
-								YAxes="{Binding YAxes}">
-							</lvc:CartesianChart>
-						</Grid>
-						<Label FontSize="15" >Wi-Fi</Label>
-					</StackPanel>
-				</TabItem.Header>
-			</TabItem>
-			<TabItem Margin="5,0,0,0" >
-				<TabItem.Header>
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="290" Height="60">
-						<Grid Margin="-10,0,0,0" Background="Transparent" Height="75" Width="90">
-							<Rectangle Fill="#292929" Margin="7,-3,0,0" Width="66" Height="47"/>
-							<lvc:CartesianChart
-								Margin="0,5,0,0"
-								TooltipPosition="Hidden"
-								Series="{Binding Series}"
-								XAxes="{Binding XAxes}"
-								YAxes="{Binding YAxes}">
-							</lvc:CartesianChart>
-						</Grid>
-						<Label FontSize="15" >GPU</Label>
-					</StackPanel>
-				</TabItem.Header>
-			</TabItem>
+
+				</TabItem>
+			
 		</TabControl>
 		
 	</DockPanel>

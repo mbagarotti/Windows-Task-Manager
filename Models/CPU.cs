@@ -32,8 +32,12 @@ using Microsoft.VisualBasic;
 using System.Management;
 using System.Xml.Linq;
 
+
 namespace Task_Manager.Models
 {
+    /// <summary>
+    /// This class will collect some data of the first CPU in the System.
+    /// </summary>
     internal class CPU
     {
         private PerformanceCounter cpuusage;
@@ -49,11 +53,16 @@ namespace Task_Manager.Models
         private int numberOfCores;
         private int numberOfLogicalProcessors;
 
+        /// <summary>
+        /// CPU class Constructor.
+        /// Init the Performance Counter and collect the data of the CPU.
+        /// </summary>
         public CPU() 
         {
             cpuusage = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
             cpufrequency = new PerformanceCounter("Processor Information", "% Processor Performance", "_Total");
             myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
+            
             
             foreach (ManagementObject obj in myProcessorObject.Get())
             {
@@ -69,48 +78,71 @@ namespace Task_Manager.Models
                 break;
             }
 
-            /*while (true) {
-                //System.Diagnostics.Debug.WriteLine("First: " + getCurrentCpuUsage() + " %");
-                
-                
-                System.Diagnostics.Debug.WriteLine(getCurrentCpuUsage(500) + "%" +" "+ string.Format("{0:F2}", getCurrentCpuFrequency(500)) + " GHz");
-
-                
-            }*/
         }
-        
+
+        /// <summary>
+        /// GET/SET L1CacheSize
+        /// Value is manually calculated:
+        /// L1 Data cache = 32 KB per core
+        ///  L1 Instruction cache = 32 KB per core
+        ///  L1 cache size per core = 32 KB + 32 KB, which = 64 KB
+        ///  L1CacheSize = numberOfLogicalProcessors * 64
+        /// </summary>
         public double L1CacheSize 
         {
             get { return l1CacheSize; }
             set { l1CacheSize = value; }
         }
+
+        /// <summary>
+        /// GET/SET L2CahceSize
+        /// </summary>
         public double L2CacheSize 
         {
             get { return l2CacheSize; }
             set { l2CacheSize = value; }
         }
+
+        /// <summary>
+        /// GET/SET L3CahceSize
+        /// </summary>
         public double L3CacheSize 
         {
             get { return l3CacheSize; }
             set { l3CacheSize = value; }
         }
 
+        /// <summary>
+        /// GET/SET ThreadCount
+        /// </summary>
         public int ThreadCount 
         {
             get { return threadCount; }
             set { threadCount = value; }
         }
+
+        /// <summary>
+        /// GET/SET NumberOfCores
+        /// </summary>
         public int NumberOfCores 
         {
             get { return numberOfCores; }
             set { numberOfCores = value; }
         }
+
+        /// <summary>
+        /// GET/SET NumberOfLogicalProcessors
+        /// </summary>
         public int NumberOfLogicalProcessors 
         {
             get { return numberOfLogicalProcessors; }
             set { numberOfLogicalProcessors = value; }
         }
-        //Return CPU string detail
+
+        /// <summary>
+        /// GET/SET Name
+        /// Name is the Processor Description
+        /// </summary>
         public String Name 
         {
             get 
@@ -118,7 +150,9 @@ namespace Task_Manager.Models
             set { name = value; }
         }
 
-        //Return current base Frequency
+        /// <summary>
+        /// GET/SET CPU_BaseFrequency
+        /// </summary>
         public double CPU_BaseFrequency 
         { 
             get 
@@ -126,7 +160,10 @@ namespace Task_Manager.Models
             set { maxSpeed = value; }
         }
 
-        //Return current CPU usage
+        /// <summary>
+        /// An async Task that calculate the percentage of the CPU usage 
+        /// </summary>
+        /// <returns>The second Performance reader which conatin the correct value</returns>
         public async Task<double> getCurrentCpuUsage(int miliseconds=500)
         {
             cpuusage.NextValue();
@@ -134,7 +171,10 @@ namespace Task_Manager.Models
             return cpuusage.NextValue();
         }
 
-        //Return current GHz
+        /// <summary>
+        /// An async Task which calculate the current Frequency of the CPU
+        /// </summary>
+        ///<returns>The Frequency base on the formula basefrequency * secondcounter/100</returns>
         public async Task<double> getCurrentCpuFrequency(int miliseconds=500)
         {
             cpufrequency.NextValue();

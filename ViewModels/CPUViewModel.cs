@@ -71,23 +71,13 @@ namespace Task_Manager.ViewModels
                 }
             };
             Task.Run(()=>Thread_Utilization_value());
-            //tasktaskworkerThread4 = new Task(() => Thread_Frequency_Value());
-
             
-            //tasktaskworkerThread4.Start();
-            /*workerThread = new Thread(new ThreadStart(Thread_Utilization_value));
-            workerThread2 = new Thread(new ThreadStart(Thread_Frequency_Value));
-            workerThread.IsBackground = true;
-            workerThread2.IsBackground = true;
-            workerThread.Start();
-            workerThread2.Start();*/
-
         }
-        public async Task Thread_Utilization_value() 
+        public async Task Thread_Utilization_value()
         {
             while (pin)
             {
-                var a = new Task<double>[] { Utilization(), Speed()};
+                var a = new Task<double>[] { Utilization(), Speed() };
                 var result = await Task.WhenAll(a);
                 var q = result[0];
                 var j = result[1];
@@ -100,29 +90,6 @@ namespace Task_Manager.ViewModels
                     count--;
                 }
                 count++;
-                /*var a = new Task<double>[] { Task.FromResult<double>(4), Task.FromResult<double>(6) };
-                var j = Task.WhenAll(a);*/
-                /*var q = Utilization(1000);
-                var j = Speed(1000);*/
-
-                /*Frequency_Value = j.ToString("f2");
-                _observableValues.Add(new (q/10));
-                Utilization_value = Convert.ToString((int)q);
-                if (count == 61)
-                {
-                    _observableValues.Remove(_observableValues[0]);
-                    count--;
-                }
-                count++;*/
-            }
-                                
-        }
-        public void Thread_Frequency_Value()
-        {
-            while (pin)
-            {
-                /*var j = Speed(1000);
-                Frequency_Value = j.ToString("f2");*/
             }
 
         }
