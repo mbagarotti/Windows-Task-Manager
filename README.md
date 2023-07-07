@@ -1,4 +1,4 @@
-# avalonia-LiveCharts2_task_manager
+Windows Task Manager Interface
 This is a simple Avalonia/LiveCharts2 project.
 The idea is to bring Windows Task Manger into Avalonia with simple examples.
 Can be use as a Template or starting point for any project that needs to check system resources and plot into LiveCharts2.
